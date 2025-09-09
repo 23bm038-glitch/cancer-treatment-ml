@@ -1,0 +1,4 @@
+body { font-family: Arial; max-width: 600px; margin: 50px auto; }
+form { background: #fff; padding: 20px; border-radius: 10px; }
+button { background: #4CAF50; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+#result { margin-top: 20px; background: #f5f5f5; padding: 15px; border-radius: 10px; }
