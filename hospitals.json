@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Cancer Care Hospital",
+    "location": "New York, NY",
+    "specialties": ["breast", "lung", "colon"],
+    "rating": 4.8
+  },
+  {
+    "name": "Hope Oncology Center",
+    "location": "Boston, MA",
+    "specialties": ["breast", "colon"],
+    "rating": 4.7
+  },
+  {
+    "name": "Lung Health Institute",
+    "location": "Chicago, IL",
+    "specialties": ["lung"],
+    "rating": 4.9
+  },
+  {
+    "name": "Digestive Care Hospital",
+    "location": "San Francisco, CA",
+    "specialties": ["colon"],
+    "rating": 4.6
+  }
+]
