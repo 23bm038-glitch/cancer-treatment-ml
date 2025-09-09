@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personalized Cancer Treatment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Personalized Cancer Treatment Plan</h1>
+
+  <form id="patientForm">
+    <label>Cancer Type:
+      <select name="cancerType" required>
+        <option value="breast">Breast</option>
+        <option value="lung">Lung</option>
+        <option value="colon">Colon</option>
+      </select>
+    </label><br>
+
+    <label>Cancer Stage:
+      <select name="cancerStage" required>
+        <option value="I">I</option>
+        <option value="II">II</option>
+        <option value="III">III</option>
+        <option value="IV">IV</option>
+      </select>
+    </label><br>
+
+    <label>Tumor Grade:
+      <select name="tumorGrade" required>
+        <option value="low">Low</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="high">High</option>
+      </select>
+    </label><br>
+
+    <button type="submit">Get Treatment Plan</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
