@@ -1,26 +1,28 @@
 document.getElementById("patientForm").addEventListener("submit", async function(event) {
-  event.preventDefault();
+  event.preventDefault(); // Prevent page reload
 
   const formData = new FormData(event.target);
-  const cancerType = formData.get("cancerType");
-  const cancerStage = formData.get("cancerStage");
-  const tumorGrade = formData.get("tumorGrade");
+  const cancerType = formData.get("cancerType"); // "breast", "lung", "colon"
+  const cancerStage = formData.get("cancerStage"); // I, II, III, IV
+  const tumorGrade = formData.get("tumorGrade"); // low, intermediate, high
 
-  // Replace 'yourusername' with your GitHub username
-  const treatmentUrl = `https://raw.githubusercontent.com/yourusername/cancer-treatment-data/main/treatments/${cancerType}_cancer.json`;
-  const hospitalUrl = `https://raw.githubusercontent.com/yourusername/cancer-treatment-data/main/hospitals.json`;
+  // GitHub raw URLs for your JSON files
+  const treatmentUrl = `https://raw.githubusercontent.com/23bm038-glitch/cancer-treatment-ml/main/treatments/${cancerType}_cancer.json`;
+  const hospitalUrl = `https://raw.githubusercontent.com/23bm038-glitch/cancer-treatment-ml/main/hospitals.json`;
 
   try {
+    // Fetch the treatment JSON dynamically
     const treatmentResp = await fetch(treatmentUrl);
     const treatmentData = await treatmentResp.json();
 
+    // Fetch hospital JSON
     const hospitalResp = await fetch(hospitalUrl);
     const hospitals = await hospitalResp.json();
 
-    // Get treatment plan
+    // Get treatments for the selected stage and tumor grade
     const suggestedTreatments = treatmentData.stages[cancerStage]?.[tumorGrade] || ["Consult specialist"];
 
-    // Get top hospitals
+    // Get top 3 hospitals for this cancer type
     const relevantHospitals = hospitals
       .filter(h => h.specialties.includes(cancerType))
       .sort((a, b) => b.rating - a.rating)
@@ -34,7 +36,9 @@ document.getElementById("patientForm").addEventListener("submit", async function
       <ul>${relevantHospitals.map(h => `<li>${h.name} (${h.location}) - Rating: ${h.rating}</li>`).join('')}</ul>
     `;
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching data:", error);
     document.getElementById("result").textContent = "Error loading data. Please try again.";
   }
 });
+
+   
