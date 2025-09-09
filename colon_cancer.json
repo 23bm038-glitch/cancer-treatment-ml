@@ -1,0 +1,24 @@
+{
+  "stages": {
+    "I": {
+      "low": ["Surgery"],
+      "intermediate": ["Surgery", "Chemotherapy"],
+      "high": ["Surgery", "Chemotherapy"]
+    },
+    "II": {
+      "low": ["Surgery", "Chemotherapy"],
+      "intermediate": ["Surgery", "Radiation"],
+      "high": ["Surgery", "Chemotherapy", "Targeted Therapy"]
+    },
+    "III": {
+      "low": ["Chemotherapy"],
+      "intermediate": ["Chemotherapy", "Surgery"],
+      "high": ["Chemotherapy", "Targeted Therapy"]
+    },
+    "IV": {
+      "low": ["Palliative Care"],
+      "intermediate": ["Chemotherapy"],
+      "high": ["Targeted Therapy", "Immunotherapy"]
+    }
+  }
+}
